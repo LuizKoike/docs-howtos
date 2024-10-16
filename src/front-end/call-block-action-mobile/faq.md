@@ -24,9 +24,12 @@ To trigger a Block action in a mobile screen, you need to:
 1. In the **OnReady** action of the Block, use a JavaScript node to define a JavaScript function that will expose the Block actions. In this example, **validatePhone** function exposes **ValidatePhoneNumber** Block action, using the top Container **rootId** to access the Block parent element:
 
         var wbElement = document.getElementById($parameters.rootId).parentElement;
-        wbElement.validatePhone = $actions.ValidatePhoneNumber;
+        if(wbElement)
+        {
+            wbElement.validatePhone = $actions.ValidatePhoneNumber;
+        }
 
-    ![Screenshot of a JavaScript function definition in a mobile app development environment, exposing a block action for phone number validation.](images/How-to-Call-a-Block-Action-in-a-Mobile-Screen_1.png "JavaScript Function Definition in Block")
+    ![Screenshot of a JavaScript function definition in a mobile app development environment, exposing a block action for phone number validation.](images/How-to-Call-a-Block-Action-in-a-mobile-screen.png "JavaScript Function Definition in Block")
 
 1. Pass the Id of the top Container as a parameter to the JavaScript node:
 
@@ -35,9 +38,12 @@ To trigger a Block action in a mobile screen, you need to:
 1. In the consumer screen, use a JavaScript node to access the JavaScript function defined in the Block DOM element, passing the Block Id as a parameter. In this example, we use the **BlockId** to get Block DOM element and call its **validatePhone** function:
 
         var wbElement = document.getElementById($parameters.BlockId);
-        wbElement.validatePhone();
+        if(wbElement)
+        {
+           wbElement.validatePhone();
+        }
 
-    ![Screenshot depicting the use of JavaScript to call a block action from a consumer screen by accessing the block's DOM element.](images/How-to-Call-a-Block-Action-in-a-Mobile-Screen_3.png "Calling Block Action from Consumer Screen")
+    ![Screenshot depicting the use of JavaScript to call a block action from a consumer screen by accessing the block's DOM element.](images/How-to-Call-a-Block-Action-in-a-mobile-screen-2.png "Calling Block Action from Consumer Screen")
 
 An improved approach is to put this second piece of JavaScript code inside a global Client Action (for example, **PhoneNumberValidate(PhoneNumberBlockId)**), so the caller Screen runs low code.
 
