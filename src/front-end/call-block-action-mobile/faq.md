@@ -28,8 +28,8 @@ To trigger a Block action in a mobile screen, you need to:
         {
             wbElement.validatePhone = $actions.ValidatePhoneNumber;
         }
-
-    ![Screenshot of a JavaScript function definition in a mobile app development environment, exposing a block action for phone number validation.](images/How-to-Call-a-Block-Action-in-a-mobile-screen.png "JavaScript Function Definition in Block")
+    
+    ![Screenshot of a JavaScript function definition in a mobile app development environment, exposing a block action for phone number validation.](images/How-To-Call-a-Block-Action-in-a-mobile-screen.png "JavaScript Function Definition in Block")
 
 1. Pass the Id of the top Container as a parameter to the JavaScript node:
 
@@ -43,7 +43,7 @@ To trigger a Block action in a mobile screen, you need to:
            wbElement.validatePhone();
         }
 
-    ![Screenshot depicting the use of JavaScript to call a block action from a consumer screen by accessing the block's DOM element.](images/How-to-Call-a-Block-Action-in-a-mobile-screen-2.png "Calling Block Action from Consumer Screen")
+    ![Screenshot depicting the use of JavaScript to call a block action from a consumer screen by accessing the block's DOM element.](images/How-To-Call-a-Block-Action-in-a-mobile-screen-2.png "Calling Block Action from Consumer Screen")
 
 An improved approach is to put this second piece of JavaScript code inside a global Client Action (for example, **PhoneNumberValidate(PhoneNumberBlockId)**), so the caller Screen runs low code.
 
